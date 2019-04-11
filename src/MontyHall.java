@@ -4,11 +4,11 @@ import java.util.Random;
 public class MontyHall {
 
     public static void main(String[] args) {
-        long tries = 1000;
+        long tries = 10000;
         long switchWins = test(tries, true);
         long noSwitchWins = test(tries, false);
-        System.out.printf("Switching won %d/%d times which is %%%2f\n", switchWins, tries, 100 * switchWins / (float) tries);
-        System.out.printf("Not switching won %d/%d times which is %%%2f\n", noSwitchWins, tries, 100 * noSwitchWins / (float) tries);
+        System.out.printf("Switching won %d/%d times which is %%%.2f\n", switchWins, tries, 100 * switchWins / (float) tries);
+        System.out.printf("Not switching won %d/%d times which is %%%.2f\n", noSwitchWins, tries, 100 * noSwitchWins / (float) tries);
     }
 
     static long test(long attempts, boolean shouldSwitch) {
