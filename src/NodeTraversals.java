@@ -23,10 +23,16 @@ public class NodeTraversals {
         preOrderTraverse(root);
         spaceOut(5);
 
+        System.out.println("Post order traversal:");
+        postOrderTraverse(root);
     }
 
     public static <T> void postOrderTraverse(Node<T> root) {
+        if (root == null) return;
 
+        postOrderTraverse(root.left);
+        postOrderTraverse(root.right);
+        System.out.println(root.data);
     }
 
     public static <T> void preOrderTraverse(Node<T> root) {
