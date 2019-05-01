@@ -40,7 +40,7 @@ public class NodeTraversals {
             Node<T> curNode = orderList.remove(0);
             if (curNode.left != null) orderList.add(curNode.left);
             if (curNode.right != null) orderList.add(curNode.right);
-            System.out.println(curNode.data);
+            System.out.print(curNode.data + " ");
         }
     }
 
@@ -49,13 +49,13 @@ public class NodeTraversals {
 
         postOrderTraverse(root.left);
         postOrderTraverse(root.right);
-        System.out.println(root.data);
+        System.out.print(root.data + " ");
     }
 
     public static <T> void preOrderTraverse(Node<T> root) {
         if (root == null) return;
 
-        System.out.println(root.data);
+        System.out.print(root.data + " ");
         preOrderTraverse(root.left);
         preOrderTraverse(root.right);
     }
@@ -64,7 +64,7 @@ public class NodeTraversals {
         if (root == null) return;
 
         inOrderTraverse(root.left);
-        System.out.println(root.data);
+        System.out.print(root.data + " ");
         inOrderTraverse(root.right);
     }
 
