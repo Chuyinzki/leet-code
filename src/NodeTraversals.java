@@ -36,10 +36,10 @@ public class NodeTraversals {
         List<Node<T>> orderList = new ArrayList<>();
         orderList.add(root);
 
-        while(!orderList.isEmpty()) {
+        while (!orderList.isEmpty()) {
             Node<T> curNode = orderList.remove(0);
-            if(curNode.left != null) orderList.add(curNode.left);
-            if(curNode.right != null) orderList.add(curNode.right);
+            if (curNode.left != null) orderList.add(curNode.left);
+            if (curNode.right != null) orderList.add(curNode.right);
             System.out.println(curNode.data);
         }
     }
