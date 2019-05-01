@@ -12,19 +12,36 @@ public class NodeTraversals {
      * */
 
     public static void main(String[] args) {
+        final int spacing = 2;
         Integer[] arr = {0, 1, 2, 3, null, 5, 6, 7, null, null, 10};
         Node<Integer> root = createNodes(arr);
 
         System.out.println("In order traversal:");
         inOrderTraverse(root);
-        spaceOut(5);
+        spaceOut(spacing);
 
         System.out.println("Pre order traversal:");
         preOrderTraverse(root);
-        spaceOut(5);
+        spaceOut(spacing);
 
         System.out.println("Post order traversal:");
         postOrderTraverse(root);
+        spaceOut(spacing);
+
+        System.out.println("Breadth first/Level order traversal:");
+        levelOrderTraverse(root);
+    }
+
+    public static <T> void levelOrderTraverse(Node<T> root) {
+        List<Node<T>> orderList = new ArrayList<>();
+        orderList.add(root);
+
+        while(!orderList.isEmpty()) {
+            Node<T> curNode = orderList.remove(0);
+            if(curNode.left != null) orderList.add(curNode.left);
+            if(curNode.right != null) orderList.add(curNode.right);
+            System.out.println(curNode.data);
+        }
     }
 
     public static <T> void postOrderTraverse(Node<T> root) {
