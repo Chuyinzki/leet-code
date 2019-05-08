@@ -1,10 +1,7 @@
 public class MergeTrees {
 
     public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(1);
-        t1.left = new TreeNode(3);
-        t1.right = new TreeNode(2);
-        t1.left.left = new TreeNode(5);
+        TreeNode t1 = Util.getBasicTree();
 
         TreeNode t2 = new TreeNode(2);
         t2.left = new TreeNode(1);
@@ -21,16 +18,5 @@ public class MergeTrees {
         retNode.left = mergeTrees(t1 != null ? t1.left : null, t2 != null ? t2.left : null);
         retNode.right = mergeTrees(t1 != null ? t1.right : null, t2 != null ? t2.right : null);
         return retNode;
-    }
-
-    //      Definition for a binary tree node.
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }
