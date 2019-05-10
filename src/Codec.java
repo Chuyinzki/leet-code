@@ -5,6 +5,7 @@ public class Codec {
 
     private final static String MY_BASE = "http://breh.com/";
     private final static Map<Integer, String> mappy = new HashMap<>();
+    private static int id = 0;
 
     public static void main(String[] args) {
         decode(encode("https://yourmom.com"));
@@ -12,9 +13,8 @@ public class Codec {
 
     // Encodes a URL to a shortened URL.
     public static String encode(String longUrl) {
-        int value = mappy.size() + 1;
-        mappy.put(value, longUrl);
-        return MY_BASE + value;
+        mappy.put(++id, longUrl);
+        return MY_BASE + id;
 
     }
 
