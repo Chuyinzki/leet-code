@@ -7,7 +7,7 @@ public class ReconstructQueue {
 
     //Output should be [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
     public static void main(String[] args) {
-        reconstructQueue(new int[][]{{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}});
+        reconstructQueue(new int[][]{{1,0},{2,0},{3,0},{4,0},{5,0},{6,0},{7,0}});
     }
 
     public static int[][] reconstructQueue(int[][] people) {
@@ -31,11 +31,6 @@ public class ReconstructQueue {
                         greaterThanCounter++;
                     if (greaterThanCounter > person[1]) {
                         ordered.add(j, person);
-                        iter.remove();
-                        addedFlag = true;
-                        break;
-                    } else if (greaterThanCounter == person[1]) {
-                        ordered.add(j + 1, person);
                         iter.remove();
                         addedFlag = true;
                         break;
