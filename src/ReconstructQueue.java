@@ -48,7 +48,9 @@ public class ReconstructQueue {
             }
             counter++;
         }
-
-        return null;
+        for(int i = 0; i < people.length; i++) {
+            people[i] = Arrays.stream(ordered.get(i)).mapToInt(Integer::intValue).toArray();
+        }
+        return people;
     }
 }
