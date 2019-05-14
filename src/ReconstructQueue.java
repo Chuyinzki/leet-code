@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class RecostructQueue {
+public class ReconstructQueue {
 
     //Output should be [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
     public static void main(String[] args) {
@@ -48,6 +48,7 @@ public class RecostructQueue {
             }
             counter++;
         }
+
         return null;
     }
 }
