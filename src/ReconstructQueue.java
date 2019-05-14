@@ -7,7 +7,7 @@ public class ReconstructQueue {
 
     //Output should be [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
     public static void main(String[] args) {
-        reconstructQueue(new int[][]{{1,0},{2,0},{3,0},{4,0},{5,0},{6,0},{7,0}});
+        reconstructQueue(new int[][]{{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}});
     }
 
     public static int[][] reconstructQueue(int[][] people) {
@@ -20,7 +20,7 @@ public class ReconstructQueue {
         int counter = 0;
         while (!unordered.isEmpty()) {
             Iterator<Integer[]> iter = unordered.iterator();
-            while(iter.hasNext()) {
+            while (iter.hasNext()) {
                 Integer[] person = iter.next();
                 if (person[1] != counter) continue;
                 int personSize = person[0];
@@ -43,7 +43,7 @@ public class ReconstructQueue {
             }
             counter++;
         }
-        for(int i = 0; i < people.length; i++) {
+        for (int i = 0; i < people.length; i++) {
             people[i] = Arrays.stream(ordered.get(i)).mapToInt(Integer::intValue).toArray();
         }
         return people;
