@@ -1,9 +1,11 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MaxCoins {
 
-    HashMap<List<Integer>, Integer> cache = new HashMap<>();
+    static HashMap<List<Integer>, Integer> cache = new HashMap<>();
 
     public static void main(String[] args) {
         System.out.println(maxCoins(new int[]{3, 1, 5, 8})); //Should be 167
@@ -16,8 +18,10 @@ public class MaxCoins {
             int[] newArr = new int[nums.length - 1];
             System.arraycopy(nums, 0, newArr, 0, i);
             System.arraycopy(nums, i + 1, newArr, i, newArr.length - i);
-            max = Math.max(max, popeye + maxCoins(newArr));
+            Integer cachedValue = cache.get(Arrays.stream(newArr).boxed().collect(Collectors.toList()));
+            max = Math.max(max, popeye + (cachedValue != null ? cachedValue : maxCoins(newArr)));
         }
+        cache.put(Arrays.stream(nums).boxed().collect(Collectors.toList()), max);
         return max;
     }
 }
