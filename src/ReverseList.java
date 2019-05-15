@@ -5,19 +5,19 @@ import java.util.Stack;
 public class ReverseList {
 
     public ListNode reverseList(ListNode head) {
-        if (head == null) return null;
-        Stack<ListNode> stack = new Stack<>();
-        while (head != null) {
-            stack.push(head);
-            head = head.next;
+        if(head == null || head.next == null) return head;
+        ListNode prev = head;
+        ListNode cur = head.next;
+        ListNode next = cur.next;
+        prev.next = null;
+
+        while(cur != null) {
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+            if(next != null)
+                next = next.next;
         }
-        ListNode returnHead = stack.pop();
-        head = returnHead;
-        while (!stack.isEmpty()) {
-            head.next = stack.pop();
-            head = head.next;
-        }
-        head.next = null;
-        return returnHead;
+        return prev;
     }
 }
