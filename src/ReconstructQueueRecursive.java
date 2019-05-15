@@ -1,7 +1,3 @@
-import javafx.util.Pair;
-
-import java.util.HashSet;
-
 public class ReconstructQueueRecursive {
     //Output should be [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
     public static void main(String[] args) {
@@ -9,7 +5,7 @@ public class ReconstructQueueRecursive {
     }
 
     public static int[][] reconstructQueue(int[][] people) {
-        if(people.length == 0) return people;
+        if (people.length == 0) return people;
         return reconstructQueueHelper(new int[0][0], people);
     }
 
@@ -45,7 +41,7 @@ public class ReconstructQueueRecursive {
                 if (runningCounter == remainingPeopleRunning.length) return null;
                 remainingPeopleRunning[runningCounter++] = remainingPerson;
             } else {
-                if(result.length == orderedPeople.length + remainingPeople.length)
+                if (result.length == orderedPeople.length + remainingPeople.length)
                     return result;
                 int[][] finalResult = new int[orderedPeople.length + result.length][2];
                 System.arraycopy(orderedPeople, 0, finalResult, 0, orderedPeople.length);

@@ -8,6 +8,7 @@ public class Node<T> {
         this.right = right;
         this.data = data;
     }
+
     public Node(T data) {
         this(null, null, data);
     }
