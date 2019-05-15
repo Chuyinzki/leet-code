@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -12,16 +13,22 @@ public class MaxCoins {
     }
 
     public static int maxCoins(int[] nums) {
+        return maxCoinsHelper(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+    }
+
+    public static int maxCoinsHelper(List<Integer> nums) {
         int max = 0;
-        for (int i = 0; i < nums.length; i++) {
-            int popeye = (i == 0 ? 1 : nums[i - 1]) * nums[i] * (i == nums.length - 1 ? 1 : nums[i + 1]);
-            int[] newArr = new int[nums.length - 1];
-            System.arraycopy(nums, 0, newArr, 0, i);
-            System.arraycopy(nums, i + 1, newArr, i, newArr.length - i);
-            Integer cachedValue = cache.get(Arrays.stream(newArr).boxed().collect(Collectors.toList()));
-            max = Math.max(max, popeye + (cachedValue != null ? cachedValue : maxCoins(newArr)));
+        for (int i = 0; i < nums.size(); i++) {
+            int popeye = (i == 0 ? 1 : nums.get(i - 1)) * nums.get(i) * (i == nums.size() - 1 ? 1 : nums.get(i + 1));
+            List<Integer> newArr = new ArrayList<>();
+            for(int j = 0; j < i; j++)
+                newArr.add(nums.get(j));
+            for(int j = i + 1; j < nums.size(); j++)
+                newArr.add(nums.get(j));
+            Integer cachedValue = cache.get(newArr);
+            max = Math.max(max, popeye + (cachedValue != null ? cachedValue : maxCoinsHelper(newArr)));
         }
-        cache.put(Arrays.stream(nums).boxed().collect(Collectors.toList()), max);
+        cache.put(nums, max);
         return max;
     }
 }
