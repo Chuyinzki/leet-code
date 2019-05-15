@@ -5,7 +5,7 @@ import java.util.List;
 public class UniquePaths {
 
     public static void main(String[] args) {
-        System.out.println(uniquePaths(3, 2)); // answer should be 56
+        System.out.println(uniquePaths(3, 7)); // answer should be
     }
 
     public static int uniquePaths(int m, int n) {
@@ -18,12 +18,13 @@ public class UniquePaths {
             map.put(Arrays.asList(m, n), 0);
             return new Object[]{0, map};
         }
-        if ((m == 1 && n == 2) || (m == 2 && n == 1) || (m == 1 && n == 1)) {
+        if (m == 1 || n == 1) {
             map.put(Arrays.asList(m, n), 1);
             return new Object[]{1, map};
         }
-        Integer curDimension = m * n;
-        Integer curAnswer = map.get(curDimension);
+        Integer curAnswer = map.get(Arrays.asList(m, n));
+        if(curAnswer == null)
+            curAnswer = map.get(Arrays.asList(n, m));
         if (curAnswer != null)
             return new Object[]{curAnswer, map};
         Object[] ans1 = uniquePathsHelper(m - 1, n, map);
