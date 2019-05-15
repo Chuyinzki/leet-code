@@ -1,3 +1,5 @@
+import Objects.TreeNode;
+
 public class Util {
     public static TreeNode getBasicTree() {
         TreeNode t1 = new TreeNode(1);

@@ -1,3 +1,5 @@
+import Objects.TreeNode;
+
 public class MergeTrees {
 
     public static void main(String[] args) {

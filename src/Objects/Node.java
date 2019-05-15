@@ -1,3 +1,5 @@
+package Objects;
+
 public class Node<T> {
     public Node left;
     public Node right;

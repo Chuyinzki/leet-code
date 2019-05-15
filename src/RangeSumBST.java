@@ -1,3 +1,5 @@
+import Objects.TreeNode;
+
 public class RangeSumBST {
     public int rangeSumBST(TreeNode root, int L, int R) {
         if (root == null) return 0;
