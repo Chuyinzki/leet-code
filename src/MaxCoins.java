@@ -8,7 +8,7 @@ public class MaxCoins {
     static HashMap<List<Integer>, Integer> cache = new HashMap<>();
 
     public static void main(String[] args) {
-        System.out.println(maxCoins(new int[]{3, 1, 5, 8})); //Should be 167
+        System.out.println(maxCoins(new int[]{8, 2, 6, 8, 9, 8, 1, 4, 1, 5, 3, 0, 7, 7, 0, 4, 2, 2, 5, 5}));
     }
 
     public static int maxCoins(int[] nums) {
