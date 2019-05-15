@@ -8,15 +8,14 @@ public class MoveZeros {
     }
 
     public static void moveZeroes(int[] nums) {
-        List<Integer> zerosIndex = new ArrayList<>();
+        int j = 0;
         for(int i = 0; i < nums.length; i++) {
-            if(!zerosIndex.isEmpty() && nums[i] != 0) {
-                int zeroIndex = zerosIndex.remove(0);
-                nums[zeroIndex] = nums[i];
-                nums[i] = 0;
-                zerosIndex.add(i);
-            } else if(nums[i] == 0)
-                zerosIndex.add(i);
+            if(nums[i] != 0) {
+                nums[j] = nums[i];
+                j++;
+            }
         }
+        for(int i = j; i < nums.length; i++)
+            nums[i] = 0;
     }
 }
