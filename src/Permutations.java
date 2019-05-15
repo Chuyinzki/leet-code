@@ -17,18 +17,18 @@ public class Permutations {
         if (nums.length == 0)
             return Collections.singletonList(Collections.emptyList());
         Arrays.sort(nums);
-        return permuteHelper(Arrays.stream(nums).boxed().collect(Collectors.toList()), new HashMap<>()).getKey();
+        return (List<List<Integer>>) permuteHelper(Arrays.stream(nums).boxed().collect(Collectors.toList()), new HashMap<>())[0];
     }
 
-    public static AbstractMap.SimpleEntry<List<List<Integer>>, HashMap<List<Integer>, List<List<Integer>>>> permuteHelper(
+    public static Object[] permuteHelper(
             List<Integer> orderedList, HashMap<List<Integer>, List<List<Integer>>> solvedPermutations) {
         if (orderedList.size() == 1)
-            return new AbstractMap.SimpleEntry<>(Collections.singletonList(orderedList), solvedPermutations);
+            return new Object[]{Collections.singletonList(orderedList), solvedPermutations};
         if (orderedList.size() == 2) {
             List<List<Integer>> retList = new ArrayList<>();
             retList.add(Arrays.asList(orderedList.get(0), orderedList.get(1)));
             retList.add(Arrays.asList(orderedList.get(1), orderedList.get(0)));
-            return new AbstractMap.SimpleEntry<>(retList, solvedPermutations);
+            return new Object[]{retList, solvedPermutations};
         }
         List<List<Integer>> retList = new ArrayList<>();
         for (int i = 0; i < orderedList.size(); i++) {
@@ -39,9 +39,9 @@ public class Permutations {
                 subList.addAll(orderedList.subList(i + 1, orderedList.size()));
             List<List<Integer>> permutedSublist = solvedPermutations.get(subList);
             if (permutedSublist == null) {
-                AbstractMap.SimpleEntry<List<List<Integer>>, HashMap<List<Integer>, List<List<Integer>>>> result = permuteHelper(subList, solvedPermutations);
-                permutedSublist = result.getKey();
-                solvedPermutations = result.getValue();
+                Object[] result = permuteHelper(subList, solvedPermutations);
+                permutedSublist = (List<List<Integer>>) result[0];
+                solvedPermutations = (HashMap<List<Integer>, List<List<Integer>>>) result[1];
                 solvedPermutations.put(subList, permutedSublist);
             }
             for (List<Integer> sublisty : permutedSublist) {
@@ -50,6 +50,6 @@ public class Permutations {
                 retList.add(addList);
             }
         }
-        return new AbstractMap.SimpleEntry<>(retList, solvedPermutations);
+        return new Object[]{retList, solvedPermutations};
     }
 }
