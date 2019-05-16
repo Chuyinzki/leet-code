@@ -21,9 +21,9 @@ public class MaxCoins {
         for (int i = 0; i < nums.size(); i++) {
             int popeye = (i == 0 ? 1 : nums.get(i - 1)) * nums.get(i) * (i == nums.size() - 1 ? 1 : nums.get(i + 1));
             List<Integer> newArr = new ArrayList<>();
-            for(int j = 0; j < i; j++)
+            for (int j = 0; j < i; j++)
                 newArr.add(nums.get(j));
-            for(int j = i + 1; j < nums.size(); j++)
+            for (int j = i + 1; j < nums.size(); j++)
                 newArr.add(nums.get(j));
             Integer cachedValue = cache.get(newArr);
             max = Math.max(max, popeye + (cachedValue != null ? cachedValue : maxCoinsHelper(newArr)));

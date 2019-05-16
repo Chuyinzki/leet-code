@@ -1,7 +1,6 @@
 import Objects.TreeNode;
 
 import java.util.ArrayDeque;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class Util {
@@ -17,7 +16,7 @@ public class Util {
         Queue<TreeNode> order = new ArrayDeque<>();
         TreeNode ret = new TreeNode(array[0]);
         order.add(ret);
-        for (int i = 1; i < array.length; i+=2) {
+        for (int i = 1; i < array.length; i += 2) {
             TreeNode curNode = order.poll();
             if (array[i] != null) {
                 curNode.left = new TreeNode(array[i]);

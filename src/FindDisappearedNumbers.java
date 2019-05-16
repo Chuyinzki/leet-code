@@ -19,7 +19,7 @@ public class FindDisappearedNumbers {
                     missingInts.add(j);
             lastNum = curNum;
         }
-        for(int i = lastNum + 1; i <= nums.length; i++)
+        for (int i = lastNum + 1; i <= nums.length; i++)
             missingInts.add(i);
         return missingInts;
     }

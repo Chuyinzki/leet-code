@@ -7,16 +7,16 @@ public class MergeSortedLists {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode retList = new ListNode(0);
         ListNode traverser = retList;
-        while(true) {
-            if(l1 == null) {
+        while (true) {
+            if (l1 == null) {
                 traverser.next = l2;
                 break;
             }
-            if(l2 == null) {
+            if (l2 == null) {
                 traverser.next = l1;
                 break;
             }
-            if(l1.val <= l2.val) {
+            if (l1.val <= l2.val) {
                 traverser.next = l1;
                 l1 = l1.next;
             } else {

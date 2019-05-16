@@ -17,7 +17,7 @@ public class FindAnagrams {
         for (int i = 0; i < s.length() - p.length() + 1; i++) {
             char[] tempArray = s.substring(i, i + p.length()).toCharArray();
             Arrays.sort(tempArray);
-            if(Arrays.equals(pArray, tempArray)) ret.add(i);
+            if (Arrays.equals(pArray, tempArray)) ret.add(i);
         }
         return ret;
     }
