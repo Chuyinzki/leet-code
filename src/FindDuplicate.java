@@ -1,13 +1,10 @@
 public class FindDuplicate {
 
     public int findDuplicate(int[] nums) {
-        for(int i = 0; i < nums.length; i++) {
-            int curNum = nums[i];
-            for(int j = 0; j < nums.length; j++) {
-                if(j == i) continue;
-                if(curNum == nums[j]) return curNum;
-            }
-        }
-        return -1;
+        int summation = 0;
+        for (int i = 1; i < nums.length; i++)
+            summation += i;
+        for (int num : nums) summation -= num;
+        return Math.abs(summation);
     }
 }
