@@ -1,30 +1,32 @@
 package Objects;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Trie {
 
     public static void main(String[] args) {
         Trie trie = new Trie();
         trie.insert("Yoink");
-        trie.insert("Yoinks");
         trie.search("Yoink");
         trie.startsWith("Yoin");
     }
 
+    private final Character letter;
     private boolean isWord;
-    private final HashMap<Character, Trie> tries;
+    private final List<Trie> tries;
 
     /**
      * Initialize your data structure here.
      */
     public Trie() {
-        this(false);
+        this(null, false);
     }
 
-    private Trie(boolean isWord) {
+    private Trie(Character letter, boolean isWord) {
+        this.letter = letter;
         this.isWord = isWord;
-        tries = new HashMap<>();
+        tries = new ArrayList<>();
     }
 
     /**
@@ -33,20 +35,20 @@ public class Trie {
     public void insert(String word) {
         if (word.isEmpty()) return;
         char nextChar = word.charAt(0);
-        Trie trie = tries.get(nextChar);
-        if (trie != null) {
-            if (word.length() == 1) {
-                trie.isWord = true;
+        for (Trie trie : tries) {
+            if (nextChar == trie.letter) {
+                if (word.length() == 1) {
+                    trie.isWord = true;
+                } else {
+                    trie.insert(word.substring(1));
+                }
+                return;
             }
-            trie.insert(word.substring(1));
-            return;
         }
-
-        Trie newTrie = new Trie(word.length() == 1);
-        tries.put(nextChar, newTrie);
+        Trie newTrie = new Trie(nextChar, word.length() == 1);
+        tries.add(newTrie);
         if (word.length() > 1)
             newTrie.insert(word.substring(1));
-
     }
 
     /**
@@ -55,12 +57,13 @@ public class Trie {
     public boolean search(String word) {
         if (word.isEmpty()) return false;
         char nextChar = word.charAt(0);
-        Trie trie = tries.get(nextChar);
-        if (trie != null) {
-            if (word.length() == 1) {
-                return trie.isWord;
-            } else {
-                return trie.search(word.substring(1));
+        for (Trie trie : tries) {
+            if (trie.letter == nextChar) {
+                if (word.length() == 1) {
+                    return trie.isWord;
+                } else {
+                    return trie.search(word.substring(1));
+                }
             }
         }
         return false;
@@ -72,12 +75,13 @@ public class Trie {
     public boolean startsWith(String prefix) {
         if (prefix.isEmpty()) return false;
         char nextChar = prefix.charAt(0);
-        Trie trie = tries.get(nextChar);
-        if (trie != null) {
-            if (prefix.length() == 1) {
-                return true;
-            } else {
-                return trie.startsWith(prefix.substring(1));
+        for (Trie trie : tries) {
+            if (trie.letter == nextChar) {
+                if (prefix.length() == 1) {
+                    return true;
+                } else {
+                    return trie.startsWith(prefix.substring(1));
+                }
             }
         }
         return false;
