@@ -7,6 +7,7 @@ public class Trie {
     public static void main(String[] args) {
         Trie trie = new Trie();
         trie.insert("Yoink");
+        trie.insert("Yoinks");
         trie.search("Yoink");
         trie.startsWith("Yoin");
     }
@@ -38,8 +39,8 @@ public class Trie {
                 trie.isWord = true;
             }
             trie.insert(word.substring(1));
+            return;
         }
-
 
         Trie newTrie = new Trie(word.length() == 1);
         tries.put(nextChar, newTrie);
