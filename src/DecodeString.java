@@ -21,15 +21,14 @@ public class DecodeString {
                 numBuilder.append(chars[i++]);
             i++;
             int times = Integer.parseInt(numBuilder.toString());
-            Stack<Character> stack = new Stack<>();
-            stack.push('[');
+            int openCounter = 1;
             StringBuilder innerSubStringRep = new StringBuilder();
 
-            while (!stack.isEmpty()) {
+            while (openCounter != 0) {
                 char curChar = chars[i++];
-                if (curChar == '[') stack.push(curChar);
-                else if (curChar == ']') stack.pop();
-                if (!stack.isEmpty())
+                if (curChar == '[') openCounter++;
+                else if (curChar == ']') openCounter--;
+                if (openCounter != 0)
                     innerSubStringRep.append(curChar);
             }
             String innerSubstring = decodeString(innerSubStringRep.toString());
