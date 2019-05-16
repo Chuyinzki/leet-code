@@ -12,8 +12,7 @@ public class FindDisappearedNumbers {
         Arrays.sort(nums);
         List<Integer> missingInts = new ArrayList<>();
         int lastNum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            int curNum = nums[i];
+        for (int curNum : nums) {
             if (lastNum != curNum)
                 for (int j = lastNum + 1; j < curNum; j++)
                     missingInts.add(j);
