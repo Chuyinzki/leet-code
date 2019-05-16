@@ -9,7 +9,6 @@ public class Trie {
         trie.startsWith("Yoin");
     }
 
-    private final Character letter;
     private boolean isWord;
     private final Trie[] tries;
 
@@ -17,11 +16,10 @@ public class Trie {
      * Initialize your data structure here.
      */
     public Trie() {
-        this(null, false);
+        this(false);
     }
 
-    private Trie(Character letter, boolean isWord) {
-        this.letter = letter;
+    private Trie(boolean isWord) {
         this.isWord = isWord;
         tries = new Trie[26];
     }
@@ -41,7 +39,7 @@ public class Trie {
             }
             return;
         }
-        Trie newTrie = new Trie(nextChar, word.length() == 1);
+        Trie newTrie = new Trie(word.length() == 1);
         tries[nextChar - 'a'] = newTrie;
         if (word.length() > 1)
             newTrie.insert(word.substring(1));
