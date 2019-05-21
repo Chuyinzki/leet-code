@@ -6,6 +6,6 @@ public class SingleNumberII {
 
     //Sort and traverse would end as O(n log n)
     public static int singleNumberII(int[] nums) {
-
+        return 0;
     }
 }
