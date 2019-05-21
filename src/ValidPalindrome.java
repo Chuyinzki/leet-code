@@ -11,6 +11,7 @@ public class ValidPalindrome {
             //move up
             while(start < toCheck.length() && !Character.isAlphabetic(toCheck.charAt(start))) start++;
             while(end >= 0 && !Character.isAlphabetic(toCheck.charAt(end))) end--;
+            if(start > end) return false;
             int diff = Math.abs(toCheck.charAt(end) - toCheck.charAt(start));
             if(diff != 0 && diff != 32) return false;
             start++;
