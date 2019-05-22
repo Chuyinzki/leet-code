@@ -25,9 +25,9 @@ public class IntersectionOfTwoLinkedLists {
     public ListNode findIntersection(ListNode a, ListNode b) {
         ListNode aRunner = a;
         ListNode bRunner = b;
-        while(aRunner.next != null) aRunner = aRunner.next;
-        while(bRunner.next != null) bRunner = bRunner.next;
-        if(bRunner != aRunner) return null;
+        while (aRunner.next != null) aRunner = aRunner.next;
+        while (bRunner.next != null) bRunner = bRunner.next;
+        if (bRunner != aRunner) return null;
         bRunner.next = b;
         ListNode retNode = LinkedListCycleII.linkedListCycleII(a);
         bRunner.next = null;

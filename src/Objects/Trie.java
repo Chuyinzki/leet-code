@@ -4,6 +4,7 @@ public class Trie {
 
     private final Trie[] tries;
     private boolean isWord;
+
     /**
      * Initialize your data structure here.
      */

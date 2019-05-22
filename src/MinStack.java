@@ -4,6 +4,9 @@ import java.util.Stack;
 
 public class MinStack {
 
+    private ArrayList<Integer> minList = new ArrayList<>();
+    private Stack<Integer> stack = new Stack<>();
+
     public static void main(String[] args) {
         MinStack minStack = new MinStack();
         minStack.push(-2);
@@ -14,9 +17,6 @@ public class MinStack {
         System.out.println(minStack.top());      // --> Returns 0.
         System.out.println(minStack.getMin());  //  --> Returns -2.
     }
-
-    private ArrayList<Integer> minList = new ArrayList<>();
-    private Stack<Integer> stack = new Stack<>();
 
     // Push element x onto stack.
     void push(int x) {
