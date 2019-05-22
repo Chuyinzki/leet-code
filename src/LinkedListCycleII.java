@@ -2,7 +2,7 @@ import Objects.ListNode;
 
 public class LinkedListCycleII {
 
-    public ListNode linkedListCycleII(ListNode head) {
+    public static ListNode linkedListCycleII(ListNode head) {
         if (head == null || head.next == null) return null;
         //find cycle
         ListNode slow = head.next;
