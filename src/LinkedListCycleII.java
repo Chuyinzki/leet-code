@@ -13,7 +13,7 @@ public class LinkedListCycleII {
             fast = fast.next.next;
         }
         //find start
-        while(head == slow) {
+        while(head != slow) {
             head = head.next;
             slow = slow.next;
         }
