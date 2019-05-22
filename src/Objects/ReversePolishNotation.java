@@ -1,7 +1,5 @@
 package Objects;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Stack;
 
 public class ReversePolishNotation {
@@ -11,11 +9,6 @@ public class ReversePolishNotation {
 
     public static int reversePolishNotation(String[] todo) {
         Stack<Integer> numbers = new Stack<>();
-        Set<String> operators = new HashSet<>();
-        operators.add("+");
-        operators.add("-");
-        operators.add("/");
-        operators.add("*");
         for (String nextString : todo) {
             if (!Character.isDigit(nextString.charAt(0))) {
                 Integer second = numbers.pop();
