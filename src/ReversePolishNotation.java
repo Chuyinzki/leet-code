@@ -1,5 +1,3 @@
-package Objects;
-
 import java.util.Stack;
 
 public class ReversePolishNotation {
