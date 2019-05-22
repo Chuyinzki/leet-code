@@ -22,14 +22,15 @@ public class IntersectionOfTwoLinkedLists {
     // 4. Remove the cycle (c3.next = null)
     // 5. Return our saved beginning of the cycle (c1)
 
-    public ListNode findIntersection(ListNode a, ListNode b) {
-        ListNode aRunner = a;
-        ListNode bRunner = b;
+    public ListNode findIntersection(ListNode headA, ListNode headB) {
+        if(headA == null || headB == null) return null;
+        ListNode aRunner = headA;
+        ListNode bRunner = headB;
         while (aRunner.next != null) aRunner = aRunner.next;
         while (bRunner.next != null) bRunner = bRunner.next;
         if (bRunner != aRunner) return null;
-        bRunner.next = b;
-        ListNode retNode = LinkedListCycleII.linkedListCycleII(a);
+        bRunner.next = headB;
+        ListNode retNode = LinkedListCycleII.linkedListCycleII(headA);
         bRunner.next = null;
         return retNode;
     }
