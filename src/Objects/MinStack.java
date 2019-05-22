@@ -28,10 +28,9 @@ public class MinStack {
     }
 
     // Removes the element on top of the stack.
-    int pop() {
+    void pop() {
         Integer toRemove = stack.pop();
         minList.remove(toRemove);
-        return toRemove;
     }
 
     // Get the top element.
