@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class ValidPalindrome {
 
     public static void main(String[] args) {
@@ -9,13 +7,13 @@ public class ValidPalindrome {
     public static boolean isPalindrome(String toCheck) {
         int start = 0;
         int end = toCheck.length() - 1;
-        while(start < end) {
+        while (start < end) {
             //move up
-            while(start < toCheck.length() && !Character.isAlphabetic(toCheck.charAt(start))) start++;
-            while(end >= 0 && !Character.isAlphabetic(toCheck.charAt(end))) end--;
-            if(start > end) return false;
+            while (start < toCheck.length() && !Character.isAlphabetic(toCheck.charAt(start))) start++;
+            while (end >= 0 && !Character.isAlphabetic(toCheck.charAt(end))) end--;
+            if (start > end) return false;
             int diff = Math.abs(toCheck.charAt(end) - toCheck.charAt(start));
-            if(diff != 0 && diff != 32) return false;
+            if (diff != 0 && diff != 32) return false;
             start++;
             end--;
         }

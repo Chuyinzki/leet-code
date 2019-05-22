@@ -6,7 +6,7 @@ import java.util.Set;
 public class WordBreak {
 
     public static void main(String[] args) {
-        System.out.println(wordBreak("aaaaaaa", Arrays.asList("aaaa","aaa")));
+        System.out.println(wordBreak("aaaaaaa", Arrays.asList("aaaa", "aaa")));
     }
 
     public static boolean wordBreak(String s, List<String> wordDict) {
@@ -21,7 +21,7 @@ public class WordBreak {
                 if (i + 1 == s.length()) return true;
                 else {
                     boolean attempt = wordBreakHelper(s.substring(i + 1), dict);
-                    if(attempt) return true;
+                    if (attempt) return true;
                 }
             }
         }

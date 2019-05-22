@@ -1,5 +1,3 @@
-import java.util.Stack;
-
 public class DecodeString {
 
     public static void main(String[] args) {
@@ -15,7 +13,7 @@ public class DecodeString {
             StringBuilder numBuilder = new StringBuilder();
             while (!Character.isDigit(chars[i])) {
                 retString.append(chars[i++]);
-                if(i >= chars.length) return retString.toString();
+                if (i >= chars.length) return retString.toString();
             }
             while (chars[i] != '[')
                 numBuilder.append(chars[i++]);

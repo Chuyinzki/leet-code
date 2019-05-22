@@ -26,13 +26,13 @@ public class MergeSort {
         int[] ret = new int[nums1.length + nums2.length];
         int nums1Pointer = 0, nums2Pointer = 0;
         int i = 0;
-        while(nums1Pointer < nums1.length && nums2Pointer < nums2.length) {
+        while (nums1Pointer < nums1.length && nums2Pointer < nums2.length) {
             ret[i++] = nums1[nums1Pointer] < nums2[nums2Pointer] ? nums1[nums1Pointer++] : nums2[nums2Pointer++];
         }
-        if(nums1Pointer == nums1.length) {
-            while(nums2Pointer < nums2.length) ret[i++] = nums2[nums2Pointer++];
+        if (nums1Pointer == nums1.length) {
+            while (nums2Pointer < nums2.length) ret[i++] = nums2[nums2Pointer++];
         } else {
-            while(nums1Pointer < nums1.length) ret[i++] = nums1[nums1Pointer++];
+            while (nums1Pointer < nums1.length) ret[i++] = nums1[nums1Pointer++];
         }
         return ret;
     }

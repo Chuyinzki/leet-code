@@ -2,16 +2,8 @@ package Objects;
 
 public class Trie {
 
-    public static void main(String[] args) {
-        Trie trie = new Trie();
-        trie.insert("Yoink");
-        trie.search("Yoink");
-        trie.startsWith("Yoin");
-    }
-
-    private boolean isWord;
     private final Trie[] tries;
-
+    private boolean isWord;
     /**
      * Initialize your data structure here.
      */
@@ -22,6 +14,13 @@ public class Trie {
     private Trie(boolean isWord) {
         this.isWord = isWord;
         tries = new Trie[26];
+    }
+
+    public static void main(String[] args) {
+        Trie trie = new Trie();
+        trie.insert("Yoink");
+        trie.search("Yoink");
+        trie.startsWith("Yoin");
     }
 
     /**

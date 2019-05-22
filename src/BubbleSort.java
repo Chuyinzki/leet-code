@@ -7,9 +7,9 @@ public class BubbleSort {
 
     public static int[] bubbleSort(int[] toSort) {
         int i = toSort.length - 2;
-        while(i >= 0) {
+        while (i >= 0) {
             int running = i;
-            while(running + 1 < toSort.length && toSort[running] >= toSort[running + 1]){
+            while (running + 1 < toSort.length && toSort[running] >= toSort[running + 1]) {
                 int temp = toSort[running];
                 toSort[running] = toSort[running + 1];
                 toSort[++running] = temp;
