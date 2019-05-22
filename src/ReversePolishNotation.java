@@ -1,14 +1,22 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class ReversePolishNotation {
     public static void main(String[] args) {
-        System.out.print(reversePolishNotation(new String[]{"2", "1", "+", "3", "*"}));
+        System.out.print(reversePolishNotation(new String[]{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}));
     }
 
-    public static int reversePolishNotation(String[] todo) {
+    public static int reversePolishNotation(String[] tokens) {
         Stack<Integer> numbers = new Stack<>();
-        for (String nextString : todo) {
-            if (!Character.isDigit(nextString.charAt(0))) {
+        Set<String> operators = new HashSet<>();
+        operators.add("+");
+        operators.add("-");
+        operators.add("/");
+        operators.add("*");
+        for (String nextString : tokens) {
+            if (operators.contains(nextString)) {
                 Integer second = numbers.pop();
                 Integer first = numbers.pop();
                 numbers.add(doArithmetic(first, nextString.charAt(0), second));
