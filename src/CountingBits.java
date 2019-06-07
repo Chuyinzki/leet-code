@@ -10,8 +10,9 @@ public class CountingBits {
 
     public static int[] countBits(int num) {
         List<Integer> retList = new ArrayList<>();
-        for (int i = 0; i <= num; i++)
+        for (int i = 0; i <= num; i++) {
             retList.add(countBitsHelper(i));
+        }
 
         return retList.stream().mapToInt(Integer::intValue).toArray();
     }

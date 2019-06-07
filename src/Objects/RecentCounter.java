@@ -3,6 +3,7 @@ package Objects;
 import java.util.LinkedList;
 
 public class RecentCounter {
+
     final LinkedList<Integer> pings;
 
     public RecentCounter() {
@@ -11,7 +12,9 @@ public class RecentCounter {
 
     public int ping(int t) {
         pings.add(t);
-        while (pings.peek() < t - 3000) pings.poll();
+        while (pings.peek() < t - 3000) {
+            pings.poll();
+        }
         return pings.size();
     }
 }

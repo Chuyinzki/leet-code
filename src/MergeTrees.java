@@ -15,7 +15,9 @@ public class MergeTrees {
     }
 
     public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
-        if (t1 == null && t2 == null) return null;
+        if (t1 == null && t2 == null) {
+            return null;
+        }
         TreeNode retNode = new TreeNode((t1 != null ? t1.val : 0) + (t2 != null ? t2.val : 0));
         retNode.left = mergeTrees(t1 != null ? t1.left : null, t2 != null ? t2.left : null);
         retNode.right = mergeTrees(t1 != null ? t1.right : null, t2 != null ? t2.right : null);

@@ -5,7 +5,9 @@ public class DecodeString {
     }
 
     public static String decodeString(String s) {
-        if (!s.contains("[") || !s.contains("]")) return s;
+        if (!s.contains("[") || !s.contains("]")) {
+            return s;
+        }
         int i = 0;
         StringBuilder retString = new StringBuilder();
         char[] chars = s.toCharArray();
@@ -13,10 +15,13 @@ public class DecodeString {
             StringBuilder numBuilder = new StringBuilder();
             while (!Character.isDigit(chars[i])) {
                 retString.append(chars[i++]);
-                if (i >= chars.length) return retString.toString();
+                if (i >= chars.length) {
+                    return retString.toString();
+                }
             }
-            while (chars[i] != '[')
+            while (chars[i] != '[') {
                 numBuilder.append(chars[i++]);
+            }
             i++;
             int times = Integer.parseInt(numBuilder.toString());
             int openCounter = 1;
@@ -24,14 +29,19 @@ public class DecodeString {
 
             while (openCounter != 0) {
                 char curChar = chars[i++];
-                if (curChar == '[') openCounter++;
-                else if (curChar == ']') openCounter--;
-                if (openCounter != 0)
+                if (curChar == '[') {
+                    openCounter++;
+                } else if (curChar == ']') {
+                    openCounter--;
+                }
+                if (openCounter != 0) {
                     innerSubStringRep.append(curChar);
+                }
             }
             String innerSubstring = decodeString(innerSubStringRep.toString());
-            for (int j = 0; j < times; j++)
+            for (int j = 0; j < times; j++) {
                 retString.append(innerSubstring);
+            }
         }
         return retString.toString();
     }

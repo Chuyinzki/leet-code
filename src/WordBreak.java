@@ -15,13 +15,18 @@ public class WordBreak {
     }
 
     private static boolean wordBreakHelper(String s, Set<String> dict) {
-        if (s == null || s.isEmpty()) return false;
+        if (s == null || s.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < s.length(); i++) {
             if (dict.contains(s.substring(0, i + 1))) {
-                if (i + 1 == s.length()) return true;
-                else {
+                if (i + 1 == s.length()) {
+                    return true;
+                } else {
                     boolean attempt = wordBreakHelper(s.substring(i + 1), dict);
-                    if (attempt) return true;
+                    if (attempt) {
+                        return true;
+                    }
                 }
             }
         }

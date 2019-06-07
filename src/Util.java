@@ -1,9 +1,9 @@
 import Objects.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Util {
+
     public static TreeNode getBasicTree() {
         TreeNode t1 = new TreeNode(1);
         t1.left = new TreeNode(3);

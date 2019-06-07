@@ -12,16 +12,19 @@ public class Permutations {
     }
 
     public static List<List<Integer>> permute(int[] nums) {
-        if (nums.length == 0)
+        if (nums.length == 0) {
             return Collections.singletonList(Collections.emptyList());
+        }
         Arrays.sort(nums);
-        return (List<List<Integer>>) permuteHelper(Arrays.stream(nums).boxed().collect(Collectors.toList()), new HashMap<>())[0];
+        return (List<List<Integer>>) permuteHelper(
+            Arrays.stream(nums).boxed().collect(Collectors.toList()), new HashMap<>())[0];
     }
 
     public static Object[] permuteHelper(
-            List<Integer> orderedList, HashMap<List<Integer>, List<List<Integer>>> solvedPermutations) {
-        if (orderedList.size() == 1)
+        List<Integer> orderedList, HashMap<List<Integer>, List<List<Integer>>> solvedPermutations) {
+        if (orderedList.size() == 1) {
             return new Object[]{Collections.singletonList(orderedList), solvedPermutations};
+        }
         if (orderedList.size() == 2) {
             List<List<Integer>> retList = new ArrayList<>();
             retList.add(Arrays.asList(orderedList.get(0), orderedList.get(1)));
@@ -31,10 +34,12 @@ public class Permutations {
         List<List<Integer>> retList = new ArrayList<>();
         for (int i = 0; i < orderedList.size(); i++) {
             List<Integer> subList = new ArrayList<>();
-            if (i != 0)
+            if (i != 0) {
                 subList.addAll(orderedList.subList(0, i));
-            if (i != orderedList.size() - 1)
+            }
+            if (i != orderedList.size() - 1) {
                 subList.addAll(orderedList.subList(i + 1, orderedList.size()));
+            }
             List<List<Integer>> permutedSublist = solvedPermutations.get(subList);
             if (permutedSublist == null) {
                 Object[] result = permuteHelper(subList, solvedPermutations);

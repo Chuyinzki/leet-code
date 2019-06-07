@@ -3,8 +3,10 @@ import java.util.Set;
 import java.util.Stack;
 
 public class ReversePolishNotation {
+
     public static void main(String[] args) {
-        System.out.print(reversePolishNotation(new String[]{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}));
+        System.out.print(reversePolishNotation(
+            new String[]{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}));
     }
 
     public static int reversePolishNotation(String[] tokens) {
@@ -27,10 +29,15 @@ public class ReversePolishNotation {
     }
 
     private static int doArithmetic(int a, char op, int b) {
-        if (op == '+') return a + b;
-        else if (op == '-') return a - b;
-        else if (op == '/') return a / b;
-        else //op == '*'
+        if (op == '+') {
+            return a + b;
+        } else if (op == '-') {
+            return a - b;
+        } else if (op == '/') {
+            return a / b;
+        } else //op == '*'
+        {
             return a * b;
+        }
     }
 }

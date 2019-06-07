@@ -12,7 +12,8 @@ public class MoveZeros {
                 j++;
             }
         }
-        for (int i = j; i < nums.length; i++)
+        for (int i = j; i < nums.length; i++) {
             nums[i] = 0;
+        }
     }
 }

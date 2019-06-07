@@ -1,4 +1,5 @@
 public class DailyTemperatures {
+
     public static void main(String[] args) {
         //T = [73, 74, 75, 71, 69, 72, 76, 73] -> [1, 1, 4, 2, 1, 1, 0, 0]
         dailyTemperatures(new int[]{73, 74, 75, 71, 69, 72, 76, 73});
@@ -11,7 +12,9 @@ public class DailyTemperatures {
                     T[i] = j - i;
                     break;
                 }
-                if (j + 1 == T.length) T[i] = 0;
+                if (j + 1 == T.length) {
+                    T[i] = 0;
+                }
             }
         }
         T[T.length - 1] = 0;

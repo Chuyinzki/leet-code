@@ -10,14 +10,18 @@ public class FindAnagrams {
     }
 
     public static List<Integer> findAnagrams(String s, String p) {
-        if (p.length() > s.length()) return Collections.emptyList();
+        if (p.length() > s.length()) {
+            return Collections.emptyList();
+        }
         List<Integer> ret = new ArrayList<>();
         char pArray[] = p.toCharArray();
         Arrays.sort(pArray);
         for (int i = 0; i < s.length() - p.length() + 1; i++) {
             char[] tempArray = s.substring(i, i + p.length()).toCharArray();
             Arrays.sort(tempArray);
-            if (Arrays.equals(pArray, tempArray)) ret.add(i);
+            if (Arrays.equals(pArray, tempArray)) {
+                ret.add(i);
+            }
         }
         return ret;
     }

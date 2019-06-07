@@ -1,4 +1,5 @@
 public class JewelsNStones {
+
     public int numJewelsInStones(String J, String S) {
         int ret = 0;
         for (int i = 0; i < J.length(); i++) {

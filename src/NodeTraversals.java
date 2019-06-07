@@ -1,5 +1,4 @@
 import Objects.Node;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,14 +39,20 @@ public class NodeTraversals {
 
         while (!orderList.isEmpty()) {
             Node<T> curNode = orderList.remove(0);
-            if (curNode.left != null) orderList.add(curNode.left);
-            if (curNode.right != null) orderList.add(curNode.right);
+            if (curNode.left != null) {
+                orderList.add(curNode.left);
+            }
+            if (curNode.right != null) {
+                orderList.add(curNode.right);
+            }
             System.out.print(curNode.data + " ");
         }
     }
 
     public static <T> void postOrderTraverse(Node<T> root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
 
         postOrderTraverse(root.left);
         postOrderTraverse(root.right);
@@ -55,7 +60,9 @@ public class NodeTraversals {
     }
 
     public static <T> void preOrderTraverse(Node<T> root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
 
         System.out.print(root.data + " ");
         preOrderTraverse(root.left);
@@ -63,7 +70,9 @@ public class NodeTraversals {
     }
 
     public static <T> void inOrderTraverse(Node<T> root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
 
         inOrderTraverse(root.left);
         System.out.print(root.data + " ");
@@ -71,8 +80,9 @@ public class NodeTraversals {
     }
 
     public static void spaceOut(int numTimes) {
-        for (int i = 0; i < numTimes; i++)
+        for (int i = 0; i < numTimes; i++) {
             System.out.println();
+        }
     }
 
     public static <T> Node<T> createNodes(T[] objects) {

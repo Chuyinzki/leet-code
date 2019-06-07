@@ -1,4 +1,5 @@
 public class BubbleSort {
+
     public static void main(String[] args) {
         for (int i : bubbleSort(new int[]{3, 6, 2, 7, 12, 9, 11, 5, 10, 12})) {
             System.out.print(i + ", ");

@@ -13,8 +13,9 @@ public class FindDuplicate {
             }
         }
         while (true) {
-            if (nums[i] == nums[j])
+            if (nums[i] == nums[j]) {
                 return nums[j];
+            }
             i = nums[i];
             j = nums[j];
         }

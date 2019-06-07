@@ -28,7 +28,9 @@ public class Trie {
      * Inserts a word into the trie.
      */
     public void insert(String word) {
-        if (word.isEmpty()) return;
+        if (word.isEmpty()) {
+            return;
+        }
         char nextChar = word.charAt(0);
         Trie trie = tries[nextChar - 'a'];
         if (trie != null) {
@@ -41,15 +43,18 @@ public class Trie {
         }
         Trie newTrie = new Trie(word.length() == 1);
         tries[nextChar - 'a'] = newTrie;
-        if (word.length() > 1)
+        if (word.length() > 1) {
             newTrie.insert(word.substring(1));
+        }
     }
 
     /**
      * Returns if the word is in the trie.
      */
     public boolean search(String word) {
-        if (word.isEmpty()) return false;
+        if (word.isEmpty()) {
+            return false;
+        }
         char nextChar = word.charAt(0);
         Trie trie = tries[nextChar - 'a'];
         if (trie != null) {
@@ -66,7 +71,9 @@ public class Trie {
      * Returns if there is any word in the trie that starts with the given prefix.
      */
     public boolean startsWith(String prefix) {
-        if (prefix.isEmpty()) return false;
+        if (prefix.isEmpty()) {
+            return false;
+        }
         char nextChar = prefix.charAt(0);
         Trie trie = tries[nextChar - 'a'];
         if (trie != null) {
@@ -78,7 +85,6 @@ public class Trie {
         }
         return false;
     }
-
 
 /**
  * Your Trie object will be instantiated and called as such:

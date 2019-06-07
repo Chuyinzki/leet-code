@@ -13,13 +13,16 @@ public class FindDisappearedNumbers {
         List<Integer> missingInts = new ArrayList<>();
         int lastNum = 0;
         for (int curNum : nums) {
-            if (lastNum != curNum)
-                for (int j = lastNum + 1; j < curNum; j++)
+            if (lastNum != curNum) {
+                for (int j = lastNum + 1; j < curNum; j++) {
                     missingInts.add(j);
+                }
+            }
             lastNum = curNum;
         }
-        for (int i = lastNum + 1; i <= nums.length; i++)
+        for (int i = lastNum + 1; i <= nums.length; i++) {
             missingInts.add(i);
+        }
         return missingInts;
     }
 }

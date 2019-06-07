@@ -15,8 +15,12 @@ public class RemoveOuterParentheses {
         for (int i = 0; i < S.length(); i++) {
             char c = S.charAt(i);
             list.add(c);
-            if (c == '(') l++;
-            if (c == ')') r++;
+            if (c == '(') {
+                l++;
+            }
+            if (c == ')') {
+                r++;
+            }
             if (l == r) {
                 list.remove(0);
                 list.remove(list.size() - 1);

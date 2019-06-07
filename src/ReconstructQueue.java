@@ -22,13 +22,16 @@ public class ReconstructQueue {
             Iterator<Integer[]> iter = unordered.iterator();
             while (iter.hasNext()) {
                 Integer[] person = iter.next();
-                if (person[1] != counter) continue;
+                if (person[1] != counter) {
+                    continue;
+                }
                 int personSize = person[0];
                 int greaterThanCounter = 0;
                 boolean addedFlag = false;
                 for (int j = 0; j < ordered.size(); j++) {
-                    if (ordered.get(j)[0] >= personSize)
+                    if (ordered.get(j)[0] >= personSize) {
                         greaterThanCounter++;
+                    }
                     if (greaterThanCounter > person[1]) {
                         ordered.add(j, person);
                         iter.remove();

@@ -21,8 +21,9 @@ public class ProductExceptSelf {
             mult *= nums[i];
             multBackward[i - 1] = mult;
         }
-        for (int i = 0; i < nums.length; i++)
+        for (int i = 0; i < nums.length; i++) {
             nums[i] = multForward[i] * multBackward[i];
+        }
         return nums;
     }
 

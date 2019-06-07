@@ -7,8 +7,10 @@ public class MontyHall {
         long tries = 10000;
         long switchWins = test(tries, true);
         long noSwitchWins = test(tries, false);
-        System.out.printf("Switching won %d/%d times which is %%%.2f\n", switchWins, tries, 100 * switchWins / (float) tries);
-        System.out.printf("Not switching won %d/%d times which is %%%.2f\n", noSwitchWins, tries, 100 * noSwitchWins / (float) tries);
+        System.out.printf("Switching won %d/%d times which is %%%.2f\n", switchWins, tries,
+            100 * switchWins / (float) tries);
+        System.out.printf("Not switching won %d/%d times which is %%%.2f\n", noSwitchWins, tries,
+            100 * noSwitchWins / (float) tries);
     }
 
     static long test(long attempts, boolean shouldSwitch) {
@@ -21,8 +23,9 @@ public class MontyHall {
 
             //populating doors
             ArrayList<Boolean> doors = new ArrayList<>();
-            for (int j = 0; j < numOfDoors; j++)
+            for (int j = 0; j < numOfDoors; j++) {
                 doors.add(j == correctDoor);
+            }
             int selectedDoor = rand.nextInt(numOfDoors);
 
             //delete wrong door

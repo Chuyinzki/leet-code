@@ -1,4 +1,5 @@
 public class HammingDistance {
+
     public static void main(String[] args) {
         /* 1 -> (0 0 0 1)
          *  4 -> (0 1 0 0)
