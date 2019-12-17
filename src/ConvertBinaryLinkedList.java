@@ -11,15 +11,17 @@ public class ConvertBinaryLinkedList {
 
     public static int getDecimalValue(ListNode head) {
         ListNode traverse = head;
-        if(traverse == null) return 0;
+        if (traverse == null) {
+            return 0;
+        }
         int i = 0;
-        while(traverse.next != null){
+        while (traverse.next != null) {
             traverse = traverse.next;
             i++;
         }
         int ret = 0;
         traverse = head;
-        while(traverse != null) {
+        while (traverse != null) {
             ret += traverse.val * Math.pow(2, i--);
             traverse = traverse.next;
         }
