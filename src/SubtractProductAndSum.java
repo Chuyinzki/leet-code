@@ -1,10 +1,10 @@
 public class SubtractProductAndSum {
     public int subtractProductAndSum(int n) {
-        char[] chars = String.valueOf(n).toCharArray();
+        String str = String.valueOf(n);
         int sum = 0;
         int mult = 1;
-        for(int i = chars.length - 1; i >= 0; i--) {
-            int val = Integer.parseInt(chars[i] + "");
+        for(int i = 0; i < str.length(); i++) {
+            int val = Integer.parseInt(str.charAt(i) + "");
             sum += val;
             mult *= val;
         }
