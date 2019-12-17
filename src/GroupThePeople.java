@@ -18,7 +18,7 @@ public class GroupThePeople {
                 temp = new ArrayList<>();
             temp.add(i);
             if(temp.size() == size) {
-                retList.add(new ArrayList(temp));
+                retList.add(new ArrayList<>(temp));
                 temp.clear();
             }
             map.put(size, temp);
