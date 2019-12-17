@@ -1,22 +1,17 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class BalancedStringSplit {
 
     public int balancedStringSplit(String s) {
         int ret = 0;
-        Deque<Character> stack = new ArrayDeque<>();
+        int count = 0;
         for (int i = 0; i < s.length(); i++) {
             char curChar = s.charAt(i);
-            if (stack.isEmpty()) {
-                stack.push(curChar);
-            } else if (curChar == stack.peek()) {
-                stack.push(curChar);
-            } else {
-                stack.pop();
-                if (stack.isEmpty()) {
-                    ret++;
-                }
+            if (curChar == 'L') {
+                count++;
+            } else if (curChar == 'R') {
+                count--;
+            }
+            if (count == 0) {
+                ret++;
             }
         }
         return ret;
