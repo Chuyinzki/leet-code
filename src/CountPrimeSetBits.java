@@ -14,7 +14,7 @@ public class CountPrimeSetBits {
     }
 
     private static boolean[] getBackwardsMap(int max) {
-        boolean[] primeMap = new boolean[max + 1];
+        boolean[] primeMap = new boolean[max];
         primeMap[0] = true;
         primeMap[1] = true;
         for (int i = 2; i < primeMap.length; i++) {
